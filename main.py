@@ -335,7 +335,7 @@ def train(args, net, train_loader, test_loader, boardio, textio):
         train_rmse_ba = np.sqrt(train_mse_ba)
         test_rmse_ba = np.sqrt(test_mse_ba)
 
-        train_rotations_ab_pred_euler = R.from_matrix(test_rotations_ab_pred).as_euler('xyz', degrees=True)
+        train_rotations_ab_pred_euler = R.from_matrix(train_rotations_ab_pred).as_euler('xyz', degrees=True)
         train_r_mse_ab = np.mean((train_rotations_ab_pred_euler - np.degrees(train_eulers_ab)) ** 2)
         train_r_rmse_ab = np.sqrt(train_r_mse_ab)
         train_r_mae_ab = np.mean(np.abs(train_rotations_ab_pred_euler - np.degrees(train_eulers_ab)))
@@ -343,7 +343,7 @@ def train(args, net, train_loader, test_loader, boardio, textio):
         train_t_rmse_ab = np.sqrt(train_t_mse_ab)
         train_t_mae_ab = np.mean(np.abs(train_translations_ab - train_translations_ab_pred))
 
-        train_rotations_ba_pred_euler = R.from_matrix(test_rotations_ba_pred).as_euler('xyz', degrees=True)
+        train_rotations_ba_pred_euler = R.from_matrix(train_rotations_ba_pred).as_euler('xyz', degrees=True)
         train_r_mse_ba = np.mean((train_rotations_ba_pred_euler - np.degrees(train_eulers_ba)) ** 2)
         train_r_rmse_ba = np.sqrt(train_r_mse_ba)
         train_r_mae_ba = np.mean(np.abs(train_rotations_ba_pred_euler - np.degrees(train_eulers_ba)))
