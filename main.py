@@ -7,6 +7,7 @@ import os
 import gc
 import argparse
 import torch
+import open3d as o3d
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
